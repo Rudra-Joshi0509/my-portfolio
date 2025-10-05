@@ -35,10 +35,18 @@
       vertical-align: middle;
     }
     body {
-      background: linear-gradient(270deg, #2b1055, #4361ee, #7209b7, #f72585);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+      margin: 0;
+  height: 100vh;
+  background: linear-gradient(270deg, #2b1055, #4361ee, #7209b7, #f72585);
+  background-size: 400% 400%;
+  animation: gradientMove 20s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
       padding-top: 70px;
     }
     /* Circle Buttons */
