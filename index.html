@@ -8,6 +8,16 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Navbar</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     /* Navbar Styles */
     .navbar {
@@ -25,7 +35,6 @@
       font-weight: 500;
       font-size: 18px;
     }
-
     .dot {
       height: 18px;
       width: 18px;
@@ -35,21 +44,13 @@
       margin-right: 5px;
       vertical-align: middle;
     }
-
     body {
-      margin: 0;
-      height: 100vh;
-      padding-top: 70px;
-      background: linear-gradient(to right, #0a0a0a, #1a1a1a, #0a0a0a, #1a1a1a, #0a0a0a);
-      background-size: 400% 100%;
-      animation: gradientMove 10s linear infinite;
+      background: radial-gradient(circle at top left, #1a1a1a, #000);
       color: white;
-    }
-
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      padding-top: 70px;
+      overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
     /* Circle Buttons */
@@ -61,28 +62,62 @@
       color: white;
       border: none;
       font-size: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
+      flex-shrink: 1;
     }
 
-    .circle-btn:hover {
-      opacity: 0.9;
-      transform: scale(1.05);
-      transition: all 0.2s ease;
+    /* Container fixes for responsiveness */
+    .container {
+      max-width: 100%;
+      overflow: hidden;
     }
+
+    /* Responsive layout adjustments */
+    @media screen and (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .col-lg-6 {
+        width: 100%;
+      }
+
+      img {
+        max-width: 200px;
+        height: auto;
+      }
+
+      .d-flex {
+        justify-content: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .d-flex::-webkit-scrollbar {
+        display: none;
+      }
+
+      .circle-btn {
+        width: 90px;
+        height: 90px;
+        font-size: 14px;
+      }
+    }
+  </style>
+
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">
         <span class="dot"></span>
         <span style="font-weight: bold; font-size: 22px;">Joshi Rudra</span>
-        <span style="font-size:14px; font-variant: small-caps; font-family:sans-serif;"> Developer</span>
+        <span style="font-size:14px;font-variant: small-caps; font-family:sans-serif"> Developer</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -91,36 +126,39 @@
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="about_me.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="MyResume.pdf">Resume</a></li>
-          <li class="nav-item"><a class="nav-link" href="Projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="Projects.html">Project</a></li>
           <li class="nav-item"><a class="nav-link" href="contactme.html">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Main Section -->
+  <!-- Responsive Flex Section -->
   <div class="container my-5">
     <div class="row align-items-center">
       <!-- Image -->
       <div class="col-lg-6 text-center mb-4 mb-lg-0">
-        <img src="mypic.jpeg" class="img-fluid rounded-circle" alt="Circular Image" style="max-width: 300px;">
+        <img src="mypic.jpeg" class="img-fluid rounded-circle" alt="Circular Image">
       </div>
-
       <!-- Text & Buttons -->
       <div class="col-lg-6">
         <h1 class="display-4">Hello</h1>
         <h3 class="fw-bold">A Bit About Me</h3>
-        <p>
-          I’m Rudra, a Diploma Engineering student at GTU passionate about technology, web development, and AI. 
-          I love blending creativity with logic to build meaningful digital solutions.
-        </p>
+        <p>I’m Rudra, a Diploma Engineering student at GTU passionate about technology, web development, and AI. I love blending creativity with logic to build meaningful digital solutions.</p>
 
-        <!-- Circle Buttons -->
+        <!-- Circle Buttons: Always in one line -->
         <div class="d-flex justify-content-between flex-nowrap gap-3 mt-3">
-          <a href="MyResume.pdf" class="circle-btn" style="background-color: #EEA302;">Resume</a>
-          <a href="Projects.html" class="circle-btn" style="background-color: #FF3B25;">Projects</a>
-          <a href="contactme.html" class="circle-btn" style="background-color: #80D8DA;">Contact</a>
+          <form action="MyResume.pdf">
+            <button class="circle-btn" style="background-color: #EEA302; min-width: 90px; min-height: 90px;">Resume</button>
+          </form>
+          <form action="Projects.html">
+            <button class="circle-btn" style="background-color: #FF3B25; min-width: 90px; min-height: 90px;">Projects</button>
+          </form>
+          <form action="contactme.html">
+            <button class="circle-btn" style="background-color: #80D8DA; min-width: 90px; min-height: 90px;">Contact</button>
+          </form>
         </div>
+
       </div>
     </div>
   </div>
@@ -132,7 +170,77 @@
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      if(window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+  </script>
+
+</body>
+</html>
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <span class="dot"></span>
+        <span style="font-weight: bold; font-size: 22px;">Joshi Rudra</span>
+        <span style="font-size:14px;font-variant: small-caps; font-family:sans-serif"> Developer</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="about_me.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="MyResume.pdf">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="Projects.html">Project</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactme.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Responsive Flex Section -->
+  <div class="container my-5">
+    <div class="row align-items-center">
+      <!-- Image -->
+      <div class="col-lg-6 text-center mb-4 mb-lg-0">
+        <img src="mypic.jpeg" class="img-fluid rounded-circle" alt="Circular Image">
+      </div>
+      <!-- Text & Buttons -->
+      <div class="col-lg-6">
+        <h1 class="display-4">Hello</h1>
+        <h3 class="fw-bold">A Bit About Me</h3>
+        <p>I’m Rudra, a Diploma Engineering student at GTU passionate about technology, web development, and AI. I love blending creativity with logic to build meaningful digital solutions.</p>
+
+        <!-- Circle Buttons: Always in one line -->
+        <div class="d-flex justify-content-between flex-nowrap gap-3 mt-3">
+          <form action="MyResume.pdf">
+            <button class="circle-btn" style="background-color: #EEA302; min-width: 90px; min-height: 90px;">Resume</button>
+          </form>
+          <form action="Projects.html">
+            <button class="circle-btn" style="background-color: #FF3B25; min-width: 90px; min-height: 90px;">Projects</button>
+          </form>
+          <form action="contactme.html">
+            <button class="circle-btn" style="background-color: #80D8DA; min-width: 90px; min-height: 90px;">Contact</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if(window.scrollY > 50) navbar.classList.add('scrolled');
       else navbar.classList.remove('scrolled');
     });
   </script>
