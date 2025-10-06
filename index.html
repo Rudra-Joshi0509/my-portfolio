@@ -55,8 +55,8 @@
     /* Circle Buttons */
     .circle-btn {
       border-radius: 50%;
-      width: 120px;
-      height: 120px;
+      width: 140px;
+      height: 140px;
       font-weight: bold;
       color: white;
       border: none;
@@ -65,12 +65,26 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
+      transition: all 0.3s ease;
     }
 
     .circle-btn:hover {
       opacity: 0.9;
       transform: scale(1.05);
-      transition: all 0.2s ease;
+    }
+
+    /* Make buttons responsive */
+    @media (max-width: 768px) {
+      .circle-btn {
+        width: 100px;
+        height: 100px;
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+      .button-container {
+        flex-direction: column !important;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -107,7 +121,7 @@
       </div>
 
       <!-- Text & Buttons -->
-      <div class="col-lg-6">
+      <div class="col-lg-6 text-center text-lg-start">
         <h1 class="display-4">Hello</h1>
         <h3 class="fw-bold">A Bit About Me</h3>
         <p>
@@ -116,7 +130,7 @@
         </p>
 
         <!-- Circle Buttons -->
-        <div class="d-flex justify-content-between flex-nowrap gap-3 mt-3">
+        <div class="d-flex justify-content-between flex-nowrap gap-3 mt-3 button-container">
           <a href="MyResume.pdf" class="circle-btn" style="background-color: #EEA302;">Resume</a>
           <a href="Projects.html" class="circle-btn" style="background-color: #FF3B25;">Projects</a>
           <a href="contactme.html" class="circle-btn" style="background-color: #80D8DA;">Contact</a>
