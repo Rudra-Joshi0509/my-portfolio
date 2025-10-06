@@ -37,10 +37,10 @@
     body {
       margin: 0;
   height: 100vh;
-  background: linear-gradient(270deg, #2b1055, #4361ee, #7209b7, #f72585);
-  background-size: 400% 400%;
-  animation: gradientMove 20s ease infinite;
-}
+        background: linear-gradient(to right, #0a0a0a, #1a1a1a, #0a0a0a, #1a1a1a, #0a0a0a);
+        background-size: 400% 100%; /* Make the gradient much wider than the element */
+        animation: moveGradient 10s linear infinite; /* Apply the animation */
+    }
 
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
