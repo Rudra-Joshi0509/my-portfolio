@@ -25,6 +25,7 @@
       font-weight: 500;
       font-size: 18px;
     }
+
     .dot {
       height: 18px;
       width: 18px;
@@ -34,21 +35,23 @@
       margin-right: 5px;
       vertical-align: middle;
     }
+
     body {
       margin: 0;
-  height: 100vh;
-        background: linear-gradient(to right, #0a0a0a, #1a1a1a, #0a0a0a, #1a1a1a, #0a0a0a);
-        background-size: 400% 100%; /* Make the gradient much wider than the element */
-        animation: moveGradient 10s linear infinite; /* Apply the animation */
+      height: 100vh;
+      padding-top: 70px;
+      background: linear-gradient(to right, #0a0a0a, #1a1a1a, #0a0a0a, #1a1a1a, #0a0a0a);
+      background-size: 400% 100%;
+      animation: gradientMove 10s linear infinite;
+      color: white;
     }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-      padding-top: 70px;
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
+
     /* Circle Buttons */
     .circle-btn {
       border-radius: 50%;
@@ -58,19 +61,28 @@
       color: white;
       border: none;
       font-size: 16px;
-      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .circle-btn:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+      transition: all 0.2s ease;
     }
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">
         <span class="dot"></span>
         <span style="font-weight: bold; font-size: 22px;">Joshi Rudra</span>
-        <span style="font-size:14px;font-variant: small-caps; font-family:sans-serif"> Developer</span>
+        <span style="font-size:14px; font-variant: small-caps; font-family:sans-serif;"> Developer</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -79,39 +91,36 @@
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="about_me.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="MyResume.pdf">Resume</a></li>
-          <li class="nav-item"><a class="nav-link" href="Projects.html">Project</a></li>
+          <li class="nav-item"><a class="nav-link" href="Projects.html">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="contactme.html">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Responsive Flex Section -->
+  <!-- Main Section -->
   <div class="container my-5">
     <div class="row align-items-center">
       <!-- Image -->
       <div class="col-lg-6 text-center mb-4 mb-lg-0">
-        <img src="mypic.jpeg" class="img-fluid rounded-circle" alt="Circular Image">
+        <img src="mypic.jpeg" class="img-fluid rounded-circle" alt="Circular Image" style="max-width: 300px;">
       </div>
+
       <!-- Text & Buttons -->
       <div class="col-lg-6">
         <h1 class="display-4">Hello</h1>
         <h3 class="fw-bold">A Bit About Me</h3>
-        <p>I’m Rudra, a Diploma Engineering student at GTU passionate about technology, web development, and AI. I love blending creativity with logic to build meaningful digital solutions.</p>
+        <p>
+          I’m Rudra, a Diploma Engineering student at GTU passionate about technology, web development, and AI. 
+          I love blending creativity with logic to build meaningful digital solutions.
+        </p>
 
-        <!-- Circle Buttons: Always in one line -->
+        <!-- Circle Buttons -->
         <div class="d-flex justify-content-between flex-nowrap gap-3 mt-3">
-          <form action="MyResume.pdf">
-            <button class="circle-btn" style="background-color: #EEA302; min-width: 90px; min-height: 90px;">Resume</button>
-          </form>
-          <form action="Projects.html">
-            <button class="circle-btn" style="background-color: #FF3B25; min-width: 90px; min-height: 90px;">Projects</button>
-          </form>
-          <form action="contactme.html">
-            <button class="circle-btn" style="background-color: #80D8DA; min-width: 90px; min-height: 90px;">Contact</button>
-          </form>
+          <a href="MyResume.pdf" class="circle-btn" style="background-color: #EEA302;">Resume</a>
+          <a href="Projects.html" class="circle-btn" style="background-color: #FF3B25;">Projects</a>
+          <a href="contactme.html" class="circle-btn" style="background-color: #80D8DA;">Contact</a>
         </div>
-
       </div>
     </div>
   </div>
@@ -123,7 +132,7 @@
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
-      if(window.scrollY > 50) navbar.classList.add('scrolled');
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
       else navbar.classList.remove('scrolled');
     });
   </script>
