@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rudra Joshi</title>
+  <title>Portfolio</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    /* Navbar Styles */
+    /* Navbar */
     .navbar {
       background-color: gray;
       transition: background-color 0.3s ease;
@@ -17,15 +17,11 @@
     .navbar.scrolled {
       background-color: rgba(128, 128, 128, 0.8);
     }
-    .navbar-brand {
+    .navbar-brand, .nav-link {
       color: white !important;
-    }
-    .nav-link {
-      color: white !important;
-      font-weight: 500;
-      font-size: 18px;
     }
 
+    /* Dot beside name */
     .dot {
       height: 18px;
       width: 18px;
@@ -33,19 +29,18 @@
       border-radius: 50%;
       display: inline-block;
       margin-right: 5px;
-      vertical-align: middle;
     }
 
+    /* Body background animation */
     body {
       margin: 0;
-      height: 100vh;
       padding-top: 70px;
-      background: linear-gradient(to right, #0a0a0a, #1a1a1a, #0a0a0a, #1a1a1a, #0a0a0a);
+      height: 100vh;
+      background: linear-gradient(to right, #0a0a0a, #1a1a1a, #0a0a0a, #1a1a1a);
       background-size: 400% 100%;
       animation: gradientMove 10s linear infinite;
       color: white;
     }
-
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -65,25 +60,23 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: transform 0.2s ease;
     }
-
     .circle-btn:hover {
-      opacity: 0.9;
       transform: scale(1.05);
     }
 
-    /* Make buttons responsive */
+    /* Smaller buttons on mobile but still inline */
     @media (max-width: 768px) {
       .circle-btn {
         width: 100px;
         height: 100px;
         font-size: 14px;
-        margin-bottom: 15px;
       }
       .button-container {
-        flex-direction: column !important;
-        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: center;
       }
     }
   </style>
@@ -93,10 +86,9 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="#">
         <span class="dot"></span>
-        <span style="font-weight: bold; font-size: 22px;">Joshi Rudra</span>
-        <span style="font-size:14px; font-variant: small-caps; font-family:sans-serif;"> Developer</span>
+        <b>Joshi Rudra</b> <span style="font-size:14px; font-variant: small-caps;">Developer</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -117,20 +109,20 @@
     <div class="row align-items-center">
       <!-- Image -->
       <div class="col-lg-6 text-center mb-4 mb-lg-0">
-        <img src="mypic.jpeg" class="img-fluid rounded-circle" alt="Circular Image" style="max-width: 300px;">
+        <img src="mypic.jpeg" class="img-fluid rounded-circle" alt="Profile" style="max-width: 280px;">
       </div>
 
       <!-- Text & Buttons -->
       <div class="col-lg-6 text-center text-lg-start">
-        <h1 class="display-4">Hello</h1>
-        <h3 class="fw-bold">A Bit About Me</h3>
+        <h1 class="display-5 fw-bold">Hello</h1>
+        <h3>A Bit About Me</h3>
         <p>
           I’m Rudra, a Diploma Engineering student at GTU passionate about technology, web development, and AI. 
           I love blending creativity with logic to build meaningful digital solutions.
         </p>
 
-        <!-- Circle Buttons -->
-        <div class="d-flex justify-content-between flex-nowrap gap-3 mt-3 button-container">
+        <!-- Buttons -->
+        <div class="d-flex justify-content-center gap-3 mt-4 button-container">
           <a href="MyResume.pdf" class="circle-btn" style="background-color: #EEA302;">Resume</a>
           <a href="Projects.html" class="circle-btn" style="background-color: #FF3B25;">Projects</a>
           <a href="contactme.html" class="circle-btn" style="background-color: #80D8DA;">Contact</a>
@@ -144,10 +136,9 @@
 
   <script>
     // Navbar scroll effect
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', () => {
       const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
   </script>
 
